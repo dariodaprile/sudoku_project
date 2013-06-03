@@ -13,13 +13,13 @@ describe Board do
     @board.cells.must_be_instance_of Array
   end
 
-  it " should return a string of values of current cells" do
-    @board.to_s.must_equal @puzzle_string.gsub(/0/,"*")
+  it "should return a string of the values of its cells" do
+    @board.to_s.must_equal @puzzle_string
   end
 
   it "should print a pretty representation of itself" do
     puts
-    puts @board.print_board
+    puts @board.print_self
     puts
   end
 

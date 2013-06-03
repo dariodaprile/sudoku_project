@@ -2,7 +2,11 @@ class Cell
   attr_reader :possible_values
 
   def initialize(value)
-    @possible_values = (value.to_s == "0") ? (1..9).to_a : [value.to_s]
+    if value == "0"
+      @possible_values = ["1","2","3","4","5","6","7","8","9"]
+    else
+      @possible_values = [value.to_s]
+    end
   end
 
 
@@ -17,7 +21,10 @@ class Cell
 
 
   def to_s
-    return @possible_values.first.to_s if finalized?
-    "*"
+    if finalized?
+      @possible_values.first.to_s
+    else
+      "0"
+    end
   end
 end

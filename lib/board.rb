@@ -7,7 +7,7 @@ def initialize(puzzle_string)
   @cells = []
   puzzle_array = puzzle_string.split('')
   puzzle_array.each do |value|
-       @cells << Cell.new(value)
+       @cells << Cell.new(value.to_i)
   end
 end
 
@@ -16,7 +16,7 @@ def to_s
 end
 
 
-def print_board
+def print_self
   @cells.each_with_index do |cell, index|
      print "|\n\n" if (index % 9 == 0) && index != 0
      print "+---------+---------+---------+\n" if (index % 27 == 0)
