@@ -23,11 +23,11 @@ describe Board do
     puts
   end
 
-  it "should sort cells" do
+  it "should return a sorted array of cells" do
     sorting_board = Board.new("0230659")
     already_sorted = Board.new("9235600")
     expected = already_sorted
-    sorting_board.sort!.must_equal already_sorted.cells
+    sorting_board.sort.must_equal already_sorted.cells
   end
 
 end
