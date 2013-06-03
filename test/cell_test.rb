@@ -18,12 +18,12 @@ describe Cell do
     @non_finalized_cell.possible_values.must_equal ["1","2","3","4","5","6","7","8","9"]
   end
 
-  describe "calculate_value method" do
+  describe "calculate_possible_values method" do
     it "should accept three arrays of numbers and remove the numbers in those arrays from the array of possible_values" do
       array1 = ["1","2"]
       array2 = ["3","4"]
       array3 = ["4","5","6"]
-      @non_finalized_cell.calculate_value(array1, array2, array3).must_equal ["7","8","9"]
+      @non_finalized_cell.calculate_possible_values(array1, array2, array3).must_equal ["7","8","9"]
       @non_finalized_cell.possible_values.must_equal ["7","8","9"]
     end
   end
@@ -71,6 +71,12 @@ describe Cell do
       @finalized_cell.<=>(@finalized_cell).must_equal 0
     end
 
+  end
+
+  it "should (if required to do so) pick a value randomly from the remaining possible values and consequently should then be finalized" do
+    @non_finalized_cell.possible_values.must_include @non_finalized_cell.pick_a_value!.first
+    @non_finalized_cell.possible_values.count.must_equal 1
+    @non_finalized_cell.finalized?.must_equal true
   end
 
 end

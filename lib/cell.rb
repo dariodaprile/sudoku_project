@@ -7,8 +7,12 @@ class Cell
     @possible_values = (value == "0") ? ["1","2","3","4","5","6","7","8","9"] : [value.to_s]
   end
 
-  def calculate_value(row_values, col_values, box_values)
+  def calculate_possible_values(row_values, col_values, box_values)
     @possible_values = @possible_values - row_values - col_values - box_values
+  end
+
+  def pick_a_value!
+    @possible_values = @possible_values[Random.rand(@possible_values.count),1]
   end
 
   def finalized?

@@ -14,7 +14,7 @@ def solve
         row = self.calc_row_values(index)
         col = self.calc_col_values(index)
         box = self.calc_box_values(index)
-        cell.calculate_value(row, col, box)
+        cell.calculate_possible_values(row, col, box)
       end
     end
     break if solved?

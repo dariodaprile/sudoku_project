@@ -38,4 +38,5 @@ describe Sudoku do
     @sudoku_solver.solve.must_equal @solution_string
     # @sudoku_solver2.solve.must_equal @solution_string2
   end
+
 end
