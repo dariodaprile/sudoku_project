@@ -21,6 +21,10 @@ def print_self
   print "|\n+---------+---------+---------+\n\n"
 end
 
+def sort!
+  @cells.sort!
+end
+
 #print representation of a board
 #+-----------+-----------+-----------+
 #| 1   *   * | 2   *     | 5         |

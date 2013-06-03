@@ -14,13 +14,20 @@ describe Board do
   end
 
   it "should return a string of the values of its cells" do
-    @board.to_s.must_equal @puzzle_string
+    @board.to_s.must_equal @puzzle_string.gsub(/0/,"*")
   end
 
   it "should print a pretty representation of itself" do
     puts
     puts @board.print_self
     puts
+  end
+
+  it "should sort cells" do
+    sorting_board = Board.new("0230659")
+    already_sorted = Board.new("9235600")
+    expected = already_sorted
+    sorting_board.sort!.must_equal already_sorted.cells
   end
 
 end

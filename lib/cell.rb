@@ -1,4 +1,5 @@
 class Cell
+  include Comparable
   attr_reader :possible_values
 
   def initialize(value)
@@ -11,12 +12,16 @@ class Cell
   end
 
   def finalized?
-    @possible_values.count == 1
+    possible_values.count == 1
   end
 
   def to_s
-    return @possible_values.first.to_s if finalized?
+    return possible_values.first.to_s if finalized?
     "*"
+  end
+
+  def <=>(other_cell)
+    return possible_values.length <=> other_cell.possible_values.length
   end
 
 end

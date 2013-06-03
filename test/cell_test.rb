@@ -49,5 +49,28 @@ describe Cell do
     end
   end
 
+  it "should respond to '==' '!=' >=' '<=' '<' '>'" do
+    @finalized_cell.must_respond_to :==
+    @finalized_cell.must_respond_to :>=
+    @finalized_cell.must_respond_to :<=
+    @finalized_cell.must_respond_to :>
+    @finalized_cell.must_respond_to :<
+  end
+
+  describe "<=>" do
+    it "should return -1 if the cell on the left has fewer possible values" do
+      @finalized_cell.<=>(@non_finalized_cell).must_equal -1
+    end
+
+    it "should return 1 if the cell on the left has more possible values" do
+      @non_finalized_cell.<=>(@finalized_cell).must_equal 1
+    end
+
+    it "should return 0 if both cells have more than one possible value but have the same number of possible values" do
+      @non_finalized_cell.<=>(@non_finalized_cell).must_equal 0
+      @finalized_cell.<=>(@finalized_cell).must_equal 0
+    end
+
+  end
 
 end
