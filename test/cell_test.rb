@@ -44,8 +44,8 @@ describe Cell do
       @finalized_cell.to_s.must_equal "2"
     end
 
-    it "should return '0' when there are multiple possible_values" do
-      @non_finalized_cell.to_s.must_equal "0"
+    it "should return '*' when there are multiple possible_values" do
+      @non_finalized_cell.to_s.must_equal "*"
     end
   end
 

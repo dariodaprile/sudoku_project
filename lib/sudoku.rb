@@ -19,8 +19,8 @@ def solve
     end
     break if solved?
   end
-  raise "Not a solvable problem!" if not solved?
   @board.print_self
+  raise "Cannot solve problem." if not solved?
   @board.to_s
 end
 

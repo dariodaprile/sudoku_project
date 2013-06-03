@@ -16,7 +16,7 @@ class Cell
 
   def to_s
     return @possible_values.first.to_s if finalized?
-    "0"
+    "*"
   end
 
 end

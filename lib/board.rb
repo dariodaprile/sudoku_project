@@ -18,7 +18,7 @@ def print_self
      print "|" if (index % 3 == 0)
      print " " + cell.to_s + " "
   end
-  print "|\n+---------+---------+---------+\n"
+  print "|\n+---------+---------+---------+\n\n"
 end
 
 #print representation of a board
