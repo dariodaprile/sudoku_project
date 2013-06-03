@@ -4,17 +4,12 @@ class Board
 attr_reader :cells
 
 def initialize(puzzle_string)
-  @cells = []
-  puzzle_array = puzzle_string.split('')
-  puzzle_array.each do |value|
-       @cells << Cell.new(value.to_i)
-  end
+  @cells = puzzle_string.split('').map {|value| Cell.new(value) }
 end
 
 def to_s
-@cells.join
+  @cells.join
 end
-
 
 def print_self
   @cells.each_with_index do |cell, index|

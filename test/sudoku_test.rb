@@ -25,6 +25,10 @@ describe Sudoku do
     @sudoku_solver.calc_box_values(0).must_equal expected
   end
 
+  it "should know when the problem is solved" do
+    @solved_sudoku = Sudoku.new(@solution_string) 
+    @solved_sudoku.solved?.must_equal true
+  end
 
   it "should solve the puzzle" do
     @sudoku_solver.solve.must_equal @solution_string

@@ -35,6 +35,7 @@ describe Cell do
 
   it "should not be finalized if it has more than one possible value" do
     @non_finalized_cell.possible_values.count.must_equal 9
+    @non_finalized_cell.possible_values.must_equal ["1","2","3","4","5","6","7","8","9"]
     @non_finalized_cell.finalized?.must_equal false
   end
 
