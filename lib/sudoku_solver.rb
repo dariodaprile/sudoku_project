@@ -15,6 +15,10 @@ def solve
   raise "Cannot solve problem."
 end
 
+def hard_solve
+  
+end
+
 def simple_solve
   9.times do
     @board.cells.each_with_index do |cell,index|
@@ -27,6 +31,7 @@ def simple_solve
     end
   end
 end
+private :simple_solve
 
 def solved?
   @board.cells.all? {|cell| cell.finalized?}

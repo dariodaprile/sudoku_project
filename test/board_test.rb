@@ -23,4 +23,10 @@ describe Board do
     puts
   end
 
+  # it "should know whether it is valid" do
+  #   invalid_sudoku_solution = "123456789123456789123456789123456789123456789123456789123456789123456789123456789"
+  #   invalid_board = Board.new(invalid_sudoku_solution)
+  #   invalid_board.valid?.must_equal false
+  # end
+
 end
