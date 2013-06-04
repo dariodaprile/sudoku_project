@@ -1,16 +1,16 @@
 
 require 'minitest/spec'
 require 'minitest/autorun'
-require '../lib/sudoku'
+require '../lib/sudoku_solver'
 
-describe Sudoku do
+describe SudokuSolver do
   before do
     @puzzle_string = "940170058020006090175090304308000600010802900500934007009740580604005100000080023"
     @solution_string = "946173258823456791175298364398517642417862935562934817239741586684325179751689423"
-    @sudoku_solver = Sudoku.new(@puzzle_string)
+    @sudoku_solver = SudokuSolver.new(@puzzle_string)
 
     @puzzle_string2 = "020030000100000050807006000080063109700092000003400600000000804060070000400000270"
-    @sudoku_solver2 = Sudoku.new(@puzzle_string2)
+    @sudoku_solver2 = SudokuSolver.new(@puzzle_string2)
     @solution_string2 = "624537918139248756857916432285763149746192385913485627571329864362874591498651273"
   end
 
@@ -31,7 +31,7 @@ describe Sudoku do
   end
 
   it "should know when the problem is solved" do
-    @solved_sudoku = Sudoku.new(@solution_string) 
+    @solved_sudoku = SudokuSolver.new(@solution_string) 
     @solved_sudoku.solved?.must_equal true
   end
 
