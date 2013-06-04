@@ -50,8 +50,8 @@ describe Cell do
     end
   end
 
-  it "should be able to pick a random number from the possible values and finalize itself with that picked value" do
-    @non_finalized_cell.pick_a_value!
-    @non_finalized_cell.finalized?.must_equal true
-  end
+  # it "should be able to pick a random number from the possible values and finalize itself with that picked value" do
+  #   @non_finalized_cell.pick_a_value!
+  #   @non_finalized_cell.finalized?.must_equal true
+  # end
 end
