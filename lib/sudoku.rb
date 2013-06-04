@@ -9,7 +9,7 @@ def initialize(puzzle_string)
 end
 
 def solve
-  81.times do
+  9.times do
     @board.cells.each_with_index do |cell,index|
       unless cell.finalized?
         row = self.calc_row_values(index)

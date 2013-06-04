@@ -11,10 +11,6 @@ class Cell
     @possible_values = @possible_values - row_values - col_values - box_values
   end
 
-  def pick_a_value!
-    @possible_values = @possible_values[Random.rand(@possible_values.count),1]
-  end
-
   def finalized?
     possible_values.count == 1
   end
