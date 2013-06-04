@@ -16,7 +16,7 @@ def solve
 end
 
 def hard_solve
-
+  
 end
 
 def simple_solve

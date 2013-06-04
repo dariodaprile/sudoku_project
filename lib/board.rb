@@ -21,6 +21,10 @@ def print_self
   print "|\n+---------+---------+---------+\n\n"
 end
 
+# def valid?
+#   box_indexes = [0, 3, 6, 27, 30, 33, 54, 57, 60]
+#   @cells.
+# end
 
 #print representation of a board
 #+-----------+-----------+-----------+

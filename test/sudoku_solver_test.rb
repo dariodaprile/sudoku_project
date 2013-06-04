@@ -41,6 +41,7 @@ describe SudokuSolver do
   end
 
   it "should solve hard puzzles (i.e. where cells still have multiple values after simple solve is complete)" do
+    skip
     @hard_sudoku_solver.solve.must_equal @hard_solution_string
   end
 
