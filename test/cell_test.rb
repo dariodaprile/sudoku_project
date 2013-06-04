@@ -1,3 +1,4 @@
+
 require 'minitest/spec'
 require 'minitest/autorun'
 require '../lib/cell'
@@ -18,12 +19,12 @@ describe Cell do
     @non_finalized_cell.possible_values.must_equal ["1","2","3","4","5","6","7","8","9"]
   end
 
-  describe "calculate_value method" do
+  describe "calculate_possible_values method" do
     it "should accept three arrays of numbers and remove the numbers in those arrays from the array of possible_values" do
       array1 = ["1","2"]
       array2 = ["3","4"]
       array3 = ["4","5","6"]
-      @non_finalized_cell.calculate_value(array1, array2, array3).must_equal ["7","8","9"]
+      @non_finalized_cell.calculate_possible_values(array1, array2, array3).must_equal ["7","8","9"]
       @non_finalized_cell.possible_values.must_equal ["7","8","9"]
     end
   end
@@ -35,6 +36,7 @@ describe Cell do
 
   it "should not be finalized if it has more than one possible value" do
     @non_finalized_cell.possible_values.count.must_equal 9
+    @non_finalized_cell.possible_values.must_equal ["1","2","3","4","5","6","7","8","9"]
     @non_finalized_cell.finalized?.must_equal false
   end
 
@@ -43,10 +45,13 @@ describe Cell do
       @finalized_cell.to_s.must_equal "2"
     end
 
-    it "should return '0' when there are multiple possible_values" do
-      @non_finalized_cell.to_s.must_equal "0"
+    it "should return '*' when there are multiple possible_values" do
+      @non_finalized_cell.to_s.must_equal "*"
     end
   end
 
-
+  it "should be able to pick a random number from the possible values and finalize itself with that picked value" do
+    @non_finalized_cell.pick_a_value!
+    @non_finalized_cell.finalized?.must_equal true
+  end
 end

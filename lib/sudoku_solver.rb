@@ -2,13 +2,20 @@
 require_relative 'board'
 
 # sudoku calculates
-class Sudoku
+class SudokuSolver
 
 def initialize(puzzle_string)
   @board = Board.new(puzzle_string)
 end
 
 def solve
+  simple_solve
+  @board.print_self if solved?
+  return @board.to_s if solved?
+  raise "Cannot solve problem."
+end
+
+def simple_solve
   9.times do
     @board.cells.each_with_index do |cell,index|
       unless cell.finalized?
@@ -18,11 +25,7 @@ def solve
         cell.calculate_possible_values(row, col, box)
       end
     end
-    break if solved?
   end
-  @board.print_self
-  raise "Cannot solve problem." if not solved?
-  @board.to_s
 end
 
 def solved?
